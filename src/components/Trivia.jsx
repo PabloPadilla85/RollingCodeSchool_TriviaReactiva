@@ -1,7 +1,7 @@
 import Pregunta from "./Pregunta";
 
 function Trivia({trivias}) {
-    return <section className="d-flex flex-column gap-2 align-items-center">
+    return <section className="d-flex flex-column gap-2 align-items-start w-75">
         {
             trivias.map( (question,index) => (
                 <Pregunta question={question} key={index} />
