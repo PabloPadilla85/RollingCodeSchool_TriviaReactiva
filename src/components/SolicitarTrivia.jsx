@@ -8,6 +8,22 @@ function SolicitarTrivia() {
 
     const [trivias, setTrivias] = useState();
 
+    // declarar como funcion
+
+    //async function getPreguntas() {
+    //    try {
+    //        const response = await fetch(url);
+    //        const datos = await response.json();
+    //        const resultados = { ...datos };
+    //        return resultados;
+    //
+    //    } catch (error) {
+    //        console.log("Error: " + error);
+    //        throw new Error("Error al obtener las preguntas");
+    //    }
+    //}
+
+
     const getPreguntas = async () => {
         try {
             const response = await fetch(url);
@@ -21,18 +37,18 @@ function SolicitarTrivia() {
     }
 
     useEffect(() => {
+
         getPreguntas().then((respuesta) => {
             setTrivias(respuesta.results);
         });
-        getPreguntas().catch((error) => {
-            console.log(error);
-        });
+        getPreguntas().catch((error) => { console.log(error); });
+
     }, []);
 
 
     return <>
         {
-            (trivias) ? ( <Trivia trivias={trivias} /> ) : ( null )
+            (trivias) ? (<Trivia trivias={trivias} />) : (null)
         }
     </>
 }
